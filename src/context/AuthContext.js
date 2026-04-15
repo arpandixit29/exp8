@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     verifyToken();
-  }, []);
+  }, [token]);
 
   // Login function
   const login = async (email, password) => {

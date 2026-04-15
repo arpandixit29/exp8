@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
+// API Configuration
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 // Create Auth Context
 const AuthContext = createContext();
 
@@ -34,7 +37,7 @@ export const AuthProvider = ({ children }) => {
     const verifyToken = async () => {
       if (token) {
         try {
-          const response = await axios.post('/api/auth/verify-token', { token });
+          const response = await axios.post(`${API_URL}/api/auth/verify-token`, { token });
           if (response.data.success) {
             setUser(response.data.user);
           } else {
@@ -60,7 +63,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.post('/api/auth/login', { email, password });
+      const response = await axios.post(`${API_URL}/api/auth/login`, { email, password });
       
       if (response.data.success) {
         const { token: newToken, user: userData } = response.data;
@@ -98,7 +101,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.post('/api/auth/register', {
+      const response = await axios.post(`${API_URL}/api/auth/register`, {
         email,
         password,
         name,

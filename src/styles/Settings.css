@@ -1,0 +1,39 @@
+.settings-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.settings-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.settings-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+  margin-bottom: 2rem;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .settings-container {
+    padding: 0;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .settings-container {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  }
+
+  .settings-card {
+    background: rgba(50, 50, 50, 0.95) !important;
+  }
+
+  .settings-section-title {
+    color: #fff;
+  }
+}
